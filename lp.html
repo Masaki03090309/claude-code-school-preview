@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code スクール｜非エンジニアがAIで業務アプリを作り、仕事につなげる</title>
+  <meta name="description" content="AIチャットを「使う」から「作る」へ。非エンジニアでもClaude Codeで業務改善ツール・アプリを実装し、副業・転職・案件獲得につなげるキャリア直結型スクール。">
+  <meta property="og:title" content="Claude Code スクール｜非エンジニアがAIで業務アプリを作り、仕事につなげる">
+  <meta property="og:description" content="学んだ先に案件がある。業務改善ツールを自分で作れるようになる実践型AIスクール。">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Noto Sans JP"', 'sans-serif'] },
+          colors: {
+            primary: { DEFAULT: '#6C3CE1', light: '#8B5CF6', dark: '#5429B3' },
+            accent: { DEFAULT: '#F97316', light: '#FB923C' },
+            surface: { DEFAULT: '#F8FAFC', dark: '#0F172A' }
+          }
+        }
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Claude Code スクール",
+    "description": "非エンジニアがAIで業務アプリを作り、案件獲得・転職・採用につなげるキャリア直結型スクール",
+    "provider": { "@type": "Organization", "name": "新大陸" }
+  }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-text {
+      background: linear-gradient(135deg, #6C3CE1 0%, #F97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .plan-popular { box-shadow: 0 0 0 3px #6C3CE1, 0 20px 40px rgba(108, 60, 225, 0.15); }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased">
+
+  <!-- ===== Navigation ===== -->
+  <nav class="fixed top-4 left-4 right-4 z-50 bg-white/80 backdrop-blur-md rounded-2xl shadow-sm border border-slate-200/50">
+    <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+      <a href="#" class="text-lg font-bold text-slate-900">Claude Code<span class="text-primary"> スクール</span></a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#problem" class="text-sm text-slate-600 hover:text-primary transition-colors">こんな悩みありませんか？</a>
+        <a href="#plans" class="text-sm text-slate-600 hover:text-primary transition-colors">コース一覧</a>
+        <a href="#flow" class="text-sm text-slate-600 hover:text-primary transition-colors">受講の流れ</a>
+        <a href="#faq" class="text-sm text-slate-600 hover:text-primary transition-colors">FAQ</a>
+        <a href="#cta-final" class="px-5 py-2 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary-dark transition-colors cursor-pointer">無料相談に申し込む</a>
+      </div>
+      <!-- Mobile menu button -->
+      <button id="menu-toggle" class="md:hidden p-2 cursor-pointer" aria-label="メニューを開く">
+        <svg class="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3">
+      <a href="#problem" class="block text-sm text-slate-600 hover:text-primary">こんな悩みありませんか？</a>
+      <a href="#plans" class="block text-sm text-slate-600 hover:text-primary">コース一覧</a>
+      <a href="#flow" class="block text-sm text-slate-600 hover:text-primary">受講の流れ</a>
+      <a href="#faq" class="block text-sm text-slate-600 hover:text-primary">FAQ</a>
+      <a href="#cta-final" class="block text-center px-5 py-3 bg-primary text-white text-sm font-semibold rounded-lg cursor-pointer">無料相談に申し込む</a>
+    </div>
+  </nav>
+
+  <!-- ===== Hero (AIDA: Attention) ===== -->
+  <section class="pt-32 pb-20 px-4 bg-gradient-to-b from-slate-50 to-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="inline-block text-sm font-semibold text-primary bg-primary/10 px-4 py-1.5 rounded-full mb-6">非エンジニア向け・キャリア直結型AIスクール</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
+        AIチャットを「使う」から<br class="hidden md:block">
+        <span class="gradient-text">業務アプリを「作る」</span>側へ。
+      </h1>
+      <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Claude Codeを武器に、業務改善ツールを自分で実装。<br>
+        学んだ先に<strong class="text-slate-800">案件・業務委託・採用</strong>のチャンスがある、<br>
+        他にはないキャリア直結型スクールです。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#cta-final" class="px-8 py-4 bg-primary text-white font-bold text-lg rounded-xl hover:bg-primary-dark transition-colors cursor-pointer shadow-lg shadow-primary/25">
+          無料相談に申し込む
+        </a>
+        <a href="#plans" class="px-8 py-4 border-2 border-slate-300 text-slate-700 font-semibold rounded-xl hover:border-primary hover:text-primary transition-colors cursor-pointer">
+          コース一覧を見る
+        </a>
+      </div>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
+        <span class="flex items-center gap-1.5">
+          <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          プログラミング経験不要
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          動画学習 + 伴走コーチ
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          案件・採用への接続あり
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Social Proof: Numbers ===== -->
+  <section class="py-12 px-4 border-y border-slate-200 bg-white">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="text-3xl md:text-4xl font-bold text-primary">4</p>
+        <p class="text-sm text-slate-500 mt-1">段階のプラン設計</p>
+      </div>
+      <div>
+        <p class="text-3xl md:text-4xl font-bold text-primary">100+</p>
+        <p class="text-sm text-slate-500 mt-1">時間の実践カリキュラム</p>
+      </div>
+      <div>
+        <p class="text-3xl md:text-4xl font-bold text-primary">月次</p>
+        <p class="text-sm text-slate-500 mt-1">最新アップデート補講</p>
+      </div>
+      <div>
+        <p class="text-3xl md:text-4xl font-bold text-primary">直結</p>
+        <p class="text-sm text-slate-500 mt-1">案件・業務委託・採用</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Problem (AIDA: Interest) ===== -->
+  <section id="problem" class="py-20 px-4 bg-slate-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 text-center">こんな悩み、ありませんか？</h2>
+      <p class="text-lg text-slate-600 text-center mb-14 max-w-2xl mx-auto">AIは気になるけど、「使う」止まりで「作る」に踏み出せない。<br>そんな方が増えています。</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-7 rounded-xl shadow-sm border border-slate-200">
+          <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">AIチャットは使えるけど<br>「作る」に進めない</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">ChatGPTやClaudeで質問はできる。でも、業務に使えるツールやアプリを自分で実装するとなると、何から始めればいいかわからない。</p>
+        </div>
+        <div class="bg-white p-7 rounded-xl shadow-sm border border-slate-200">
+          <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">スクールで学んでも<br>仕事に繋がらない</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">動画は見た、課題も出した。でも修了後に案件も転職先もなく、学んだスキルをどう活かせばいいかわからないまま終わってしまう。</p>
+        </div>
+        <div class="bg-white p-7 rounded-xl shadow-sm border border-slate-200">
+          <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-900 mb-2">AIで副業・転職したいけど<br>何を身につければいいか不明</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">「AIスキルが武器になる」とは聞く。でも、どんなスキルをどこまで身につければ収入や転職に繋がるのか、具体的な道筋が見えない。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Solution (AIDA: Interest → Desire) ===== -->
+  <section class="py-20 px-4">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="text-sm font-semibold text-primary uppercase tracking-wider mb-2">Solution</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">学んだ先に「仕事」がある。<br>それが、このスクールの本質です。</h2>
+        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+          Claude Codeスクールは、単なる講座ではありません。<br>
+          <strong class="text-slate-800">業務改善ツールの実装力</strong>を身につけ、<br>
+          提案・納品・運用まで一通りできる人材に成長し、<br>
+          最終的に<strong class="text-slate-800">案件・業務委託・採用</strong>に接続する。<br>
+          そこまで設計されたキャリア直結型プログラムです。
+        </p>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span class="text-slate-700"><strong>非エンジニアでも作れる</strong> — 環境構築からテンプレート付きで丁寧にサポート</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span class="text-slate-700"><strong>動画 + 伴走コーチ</strong> — 自分のペースで進められ、詰まったらすぐ相談</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span class="text-slate-700"><strong>実務テンプレート完備</strong> — 要件定義、CLAUDE.md、提案書、README等すべて配布</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span class="text-slate-700"><strong>出口がある</strong> — 修了後に案件紹介・業務委託・採用への接続が設計済み</span>
+          </li>
+        </ul>
+      </div>
+      <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-3xl p-8 md:p-12">
+        <h3 class="text-xl font-bold text-slate-900 mb-6">他のAIスクールとの違い</h3>
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-slate-900">一般的なAIスクール</p>
+              <p class="text-sm text-slate-500">学んで終わり。修了後の出口なし。汎用テーマで実務に直結しない。</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-primary">Claude Code スクール</p>
+              <p class="text-sm text-slate-500">実務テーマで成果物を作り、案件・業務委託・採用に直結。新大陸の顧客基盤が出口を保証。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Benefits ===== -->
+  <section class="py-20 px-4 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">このスクールで得られるもの</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">ツールの使い方だけでなく、仕事に変わるスキルが手に入ります。</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+          <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-3">業務アプリの実装力</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">見積管理、問い合わせ管理、資料台帳など、現場の課題をアプリとして実装できる力が身につきます。非エンジニアの方も対象です。</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+          <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-3">実務ポートフォリオ</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">成果物、要件定義書、提案書、デモ動画がすべて揃う。副業案件の応募や転職面談で「見せられるもの」がある状態で修了できます。</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+          <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-slate-900 mb-3">案件・採用への接続</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">修了後、評価基準を満たした方は新大陸の案件候補・業務委託候補・採用候補に接続。学びが収入やキャリアに直結する設計です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Plans (AIDA: Desire) ===== -->
+  <section id="plans" class="py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">あなたに合ったプランを選べます</h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">初めての方から実務人材を目指す方まで、4段階のステップアップ設計。</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- 初級 -->
+        <div class="bg-white p-6 rounded-xl border-2 border-slate-200 hover:border-primary/30 transition-colors flex flex-col">
+          <div class="mb-4">
+            <span class="text-xs font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">入口商品</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-1">初級プラン</h3>
+          <p class="text-sm text-slate-500 mb-4">AI業務改善スターター</p>
+          <p class="text-3xl font-bold text-slate-900 mb-1">
+            <span class="text-lg line-through text-slate-400 font-normal mr-2">88,000円</span>
+          </p>
+          <p class="text-3xl font-bold text-accent">69,800<span class="text-base font-normal text-slate-500">円（税込）</span></p>
+          <p class="text-xs text-accent font-semibold mb-4">モニター価格</p>
+          <p class="text-sm text-slate-600 mb-6 leading-relaxed">1ヶ月で業務改善ミニツールを1本完成。AIを「質問する」から「作る」側へ最短で移れます。</p>
+          <ul class="space-y-2 mb-8 flex-1">
+            <li class="text-sm text-slate-600 flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              想定期間: 1ヶ月
+            </li>
+            <li class="text-sm text-slate-600 flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              学習時間: 20〜30時間
+            </li>
+            <li class="text-sm text-slate-600 flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              成果物: ミニツール + README + デモ動画
+            </li>
+            <li class="text-sm text-slate-600 flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              伴走コーチ + テンプレート付き
+            </li>
+          </ul>
+          <a href="#cta-final" class="block text-center px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors cursor-pointer">詳細を聞く</a>
+        </div>
+
+        <!-- 中級 (人気) -->
+        <div class="bg-white p-6 rounded-xl plan-popular relative flex flex-col">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">一番人気</div>
+          <div class="mb-4">
+            <span class="text-xs font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">主力商品</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-1">中級プラン</h3>
+          <p class="text-sm text-slate-500 mb-4">業務アプリ実装コース</p>
+          <p class="text-3xl font-bold text-slate-900 mb-1">
+            <span class="text-lg line-through text-slate-400 font-normal mr-2">248,000円</span>
+          </p>
+          <p class="text-3xl font-bold text-accent">198,000<span class="text-base font-normal text-slate-500">円（税込）</span></p>
+          <p class="text-xs text-accent font-semibold mb-4">モニター価格</p>
+          <p class="text-sm text-slate-600 mb-6 leading-relaxed">2ヶ月でDB・認証・API連携を含む業務アプリを1本完成。「作れる人」になる主力コースです。</p>
+          <ul class="space-y-2 mb-8 flex-1">
+            <li class="text-sm text-slate-600 flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              想定期間: 2ヶ月
+            </li>
+            <li class="text-sm text-slate-600 flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              学習時間: 45〜60時間
+            </li>
+            <li class="text-sm text-slate-600 flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              成果物: 業務アプリ + 要件定義 + 手順書
+            </li>
+            <li class="text-sm text-slate-600 flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              CLAUDE.md / Skills運用まで学べる
+            </li>
+          </ul>
+          <a href="#cta-final" class="block text-center px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors cursor-pointer">無料相談に申し込む</a>
+        </div>
+
+        <!-- 実践 -->
+        <div class="bg-white p-6 rounded-xl border-2 border-slate-200 hover:border-primary/30 transition-colors flex flex-col">
+          <div class="mb-4">
+            <span class="text-xs font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">利益商品</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-1">実践プラン</h3>
+          <p class="text-sm text-slate-500 mb-4">FDE案件化ブートキャンプ</p>
+          <p class="text-3xl font-bold text-slate-900 mb-1">
+            <span class="text-lg line-through text-slate-400 font-normal mr-2">498,000円</span>
+          </p>
+          <p class="text-3xl font-bold text-accent">398,000<span class="text-base font-normal text-slate-500">円（税込）</span></p>
+          <p class="text-xs text-accent font-semibold mb-4">モニター価格</p>
+          <p class="text-sm text-slate-600 mb-6 leading-relaxed">3ヶ月で提案→実装→納品→運用まで一通り回せるように。案件対応の型を身につけます。</p>
+          <ul class="space-y-2 mb-8 flex-1">
+            <li class="text-sm text-slate-600 flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              想定期間: 3ヶ月
+            </li>
+            <li class="text-sm text-slate-600 flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              学習時間: 80〜100時間
+            </li>
+            <li class="text-sm text-slate-600 flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              成果物: 提案書 + アプリ + マニュアル + 実績記事
+            </li>
+            <li class="text-sm text-slate-600 flex items-start gap-2">
+              <svg class="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              案件候補・業務委託候補への接続あり
+            </li>
+          </ul>
+          <a href="#cta-final" class="block text-center px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors cursor-pointer">詳細を聞く</a>
+        </div>
+
+        <!-- Pro -->
+        <div class="bg-gradient-to-b from-slate-900 to-slate-800 p-6 rounded-xl text-white flex flex-col">
+          <div class="mb-4">
+            <span class="text-xs font-semibold text-amber-400 bg-amber-400/10 px-3 py-1 rounded-full">選抜制</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-1">Proプラン</h3>
+          <p class="text-sm text-slate-400 mb-4">配属・採用直結プログラム</p>
+          <p class="text-3xl font-bold text-white mb-1">
+            <span class="text-lg line-through text-slate-500 font-normal mr-2">798,000円</span>
+          </p>
+          <p class="text-3xl font-bold text-amber-400">598,000<span class="text-base font-normal text-slate-400">円（税込）</span></p>
+          <p class="text-xs text-amber-400 font-semibold mb-4">モニター価格・選抜制</p>
+          <p class="text-sm text-slate-300 mb-6 leading-relaxed">3ヶ月で顧客ヒアリング→PoC→運用設計まで。修了後は正社員・業務委託・パートナー候補に。</p>
+          <ul class="space-y-2 mb-8 flex-1">
+            <li class="text-sm text-slate-300 flex items-start gap-2">
+              <svg class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              想定期間: 3ヶ月
+            </li>
+            <li class="text-sm text-slate-300 flex items-start gap-2">
+              <svg class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              学習時間: 90〜120時間
+            </li>
+            <li class="text-sm text-slate-300 flex items-start gap-2">
+              <svg class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              成果物: 診断レポート + PoC + ポートフォリオ
+            </li>
+            <li class="text-sm text-slate-300 flex items-start gap-2">
+              <svg class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              正社員・業務委託・採用への直結
+            </li>
+          </ul>
+          <a href="#cta-final" class="block text-center px-6 py-3 bg-amber-400 text-slate-900 font-semibold rounded-lg hover:bg-amber-300 transition-colors cursor-pointer">選考に申し込む</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Differentiators ===== -->
+  <section class="py-20 px-4 bg-primary text-white">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">なぜ、このスクールなのか</h2>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="flex gap-5">
+          <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-2">学んだ先に「案件」がある</h3>
+            <p class="text-white/70 text-sm leading-relaxed">運営元の新大陸は、AI活用支援・FDE・受託開発を手がける企業。修了者を自社案件・業務委託・採用に接続できる唯一の出口設計です。</p>
+          </div>
+        </div>
+        <div class="flex gap-5">
+          <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-2">実務に直結する題材</h3>
+            <p class="text-white/70 text-sm leading-relaxed">見積管理、問い合わせ管理、資料台帳、営業進捗管理など、建設・中小企業・バックオフィスの現場課題がそのまま教材になっています。</p>
+          </div>
+        </div>
+        <div class="flex gap-5">
+          <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-2">月次で教材が最新化</h3>
+            <p class="text-white/70 text-sm leading-relaxed">Claude Codeは進化が速い。毎月の最新機能を反映した補講で、常に最前線のスキルが学べます。</p>
+          </div>
+        </div>
+        <div class="flex gap-5">
+          <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-2">FDEメソッドが学べる</h3>
+            <p class="text-white/70 text-sm leading-relaxed">業務棚卸し→課題発見→AI化診断→MVP提案→実装→納品→運用改善。実装型支援人材に必要な全プロセスを網羅しています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How it Works ===== -->
+  <section id="flow" class="py-20 px-4">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-16 text-center">受講の流れ</h2>
+      <div class="space-y-12">
+        <div class="flex gap-6 items-start">
+          <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">1</div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">無料相談でプランを選ぶ</h3>
+            <p class="text-slate-600">現在のスキルレベル・目標・働き方に合わせて、最適なプランをご提案します。未経験でも問題ありません。</p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">2</div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">動画学習 + 課題に取り組む</h3>
+            <p class="text-slate-600">自分のペースで動画を進め、各コースの課題を提出。詰まったら伴走コーチにすぐ相談できます。テンプレートも完備。</p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <div class="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">3</div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">成果物を完成させる</h3>
+            <p class="text-slate-600">業務改善ツールや業務アプリを実際に作り上げ、README・デモ動画・提案書など実務で見せられるポートフォリオを整えます。</p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <div class="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">4</div>
+          <div>
+            <h3 class="text-xl font-semibold text-slate-900 mb-2">案件・業務委託・採用に接続</h3>
+            <p class="text-slate-600">評価基準を満たした修了者は、新大陸の顧客案件・業務委託・正社員採用の候補に。学んだスキルがそのまま仕事になります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Target Audience ===== -->
+  <section class="py-20 px-4 bg-slate-50">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">こんな方におすすめです</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-xl border border-slate-200 flex items-start gap-4">
+          <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-slate-700">AIに興味はあるが、<strong>プログラミング経験がない</strong>会社員の方</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-slate-200 flex items-start gap-4">
+          <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-slate-700">AIスキルを<strong>副業・転職・昇給</strong>に活かしたい方</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-slate-200 flex items-start gap-4">
+          <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-slate-700">社内の<strong>DX担当・業務改善担当</strong>になりたい方</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-slate-200 flex items-start gap-4">
+          <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-slate-700">営業、事務、バックオフィス、<strong>建設事務</strong>などの現場で業務を改善したい方</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-slate-200 flex items-start gap-4">
+          <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-slate-700">他のAIスクールで<strong>学んだけど仕事に繋がらなかった</strong>方</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-slate-200 flex items-start gap-4">
+          <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          <p class="text-slate-700">将来的に<strong>FDE（AI実装支援）</strong>の人材として活躍したい方</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="py-20 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-16 text-center">よくあるご質問</h2>
+      <div class="space-y-4">
+
+        <details class="group bg-white border border-slate-200 rounded-xl">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 hover:text-primary transition-colors">
+            プログラミング未経験でも大丈夫ですか？
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">はい、初級プランはプログラミング未経験の方を対象に設計しています。Claude Codeが実装の大部分を担うため、あなたは「何を作りたいか」を考え、指示を出すことに集中できます。環境構築から丁寧にサポートします。</div>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-xl">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 hover:text-primary transition-colors">
+            仕事をしながらでも受講できますか？
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">はい。動画学習が中心なので、ご自身のペースで進められます。初級なら週5〜8時間、中級なら週6〜8時間の学習時間を確保いただければ十分です。詰まったときは伴走コーチにいつでも質問できます。</div>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-xl">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 hover:text-primary transition-colors">
+            修了後に案件や採用が保証されますか？
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">案件や採用を「保証」するものではありません。ただし、評価基準を満たした修了者は、新大陸の顧客案件・業務委託・正社員採用の「候補」として接続されます。これは一般的なAIスクールにはない独自の仕組みです。</div>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-xl">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 hover:text-primary transition-colors">
+            どのプランから始めればいいですか？
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">プログラミング未経験の方は初級プランから。すでにAIツールを日常的に使っている方、または業務アプリを作りたい方は中級プランからの受講をおすすめします。無料相談で最適なプランをご提案しますので、お気軽にお申し込みください。</div>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-xl">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 hover:text-primary transition-colors">
+            Claude Codeとは何ですか？
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">Anthropic社が提供するAIコーディングツールです。自然言語で指示を出すだけで、アプリケーションの実装を行えます。非エンジニアでも業務ツールやアプリを作れるようになる、いま最も注目されているAI開発ツールの一つです。</div>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-xl">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-semibold text-slate-900 hover:text-primary transition-colors">
+            受講に必要な環境はありますか？
+            <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="px-6 pb-6 text-slate-600 text-sm leading-relaxed">インターネット接続が可能なPC（Windows / Mac）があれば受講できます。VS Codeなどの無料ツールを使用します。環境構築はコース内で手順を解説しますので、事前準備は不要です。</div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Final CTA (AIDA: Action) ===== -->
+  <section id="cta-final" class="py-20 px-4 bg-gradient-to-br from-primary to-primary-dark">
+    <div class="max-w-3xl mx-auto text-center text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">AIで業務を変え、仕事につなげる。<br>まずは無料相談から。</h2>
+      <p class="text-xl text-white/80 mb-4 leading-relaxed">あなたのスキルレベルと目標に合わせて、最適なプランをご提案します。</p>
+      <p class="text-white/60 text-sm mb-10">プログラミング経験は不問です。お気軽にご相談ください。</p>
+      <a href="#" class="inline-block px-12 py-5 bg-white text-primary font-bold text-lg rounded-xl hover:bg-white/90 transition-colors cursor-pointer shadow-lg">
+        無料相談に申し込む
+      </a>
+      <p class="mt-6 text-white/50 text-sm">無理な勧誘は一切ありません。相談は完全無料です。</p>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="py-12 px-4 bg-slate-900 text-slate-400">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <p class="text-white font-bold text-lg">Claude Code<span class="text-primary"> スクール</span></p>
+        <p class="text-sm mt-1">運営: 株式会社新大陸</p>
+      </div>
+      <div class="flex gap-6 text-sm">
+        <a href="#" class="hover:text-white transition-colors">特定商取引法に基づく表記</a>
+        <a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a>
+        <a href="#" class="hover:text-white transition-colors">利用規約</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile menu toggle -->
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+    // Close mobile menu on link click
+    document.querySelectorAll('#mobile-menu a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.add('hidden');
+      });
+    });
+  </script>
+
+</body>
+</html>

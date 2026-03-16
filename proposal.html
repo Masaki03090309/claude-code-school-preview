@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>新大陸向け Claude Codeスクール企画提案（ドラフト） | 共有用Web版</title>
+<meta name="description" content="新大陸向け Claude Codeスクール企画提案（ドラフト） の共有用Web版です。">
+<style>
+:root{--bg:#f6f8fc;--surface:#fff;--surface-alt:#f1f5fb;--text:#18212f;--muted:#5a677b;--line:#dce3ef;--accent:#3157d5;--shadow:0 18px 50px rgba(17,29,56,.08);--max:1320px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif;color:var(--text);background:radial-gradient(circle at top left,rgba(107,140,255,.18),transparent 32%),radial-gradient(circle at top right,rgba(49,87,213,.12),transparent 28%),var(--bg);line-height:1.72}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.shell{width:min(calc(100% - 40px),var(--max));margin:0 auto 56px}
+.hero{margin-top:28px;background:linear-gradient(145deg,rgba(24,33,47,.96),rgba(38,54,93,.93));color:#fff;border-radius:32px;padding:34px 34px 28px;box-shadow:0 30px 70px rgba(17,29,56,.18);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -12% -28% auto;width:340px;height:340px;background:radial-gradient(circle,rgba(107,140,255,.45),rgba(107,140,255,0) 70%);pointer-events:none}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.92);font-size:13px;letter-spacing:.02em;margin-bottom:14px}
+.hero h1{font-size:clamp(2rem,2.8vw,3.2rem);line-height:1.18;margin:0 0 12px;max-width:880px}
+.hero p.lead{margin:0;max-width:860px;color:rgba(255,255,255,.86);font-size:1rem}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 16px;border-radius:999px;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.16);font-weight:600;cursor:pointer;backdrop-filter:blur(8px)}
+.button:hover{text-decoration:none;background:rgba(255,255,255,.18)}
+.button.primary{background:#fff;color:#18212f}
+.meta-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.1);color:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.12);font-size:13px;white-space:nowrap}
+.badge-label{color:rgba(255,255,255,.68);font-size:12px;letter-spacing:.04em}
+.summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:22px;position:relative;z-index:1}
+.summary-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:18px 18px 16px;backdrop-filter:blur(6px)}
+.summary-card p{margin:8px 0 0;color:rgba(255,255,255,.84);font-size:14px}
+.summary-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.summary-tier{font-size:1.05rem;font-weight:800}
+.summary-role{font-size:12px;color:rgba(255,255,255,.68)}
+.layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:22px;margin-top:22px;align-items:start}
+.toc{position:sticky;top:20px;background:rgba(255,255,255,.88);border:1px solid rgba(220,227,239,.9);border-radius:24px;padding:20px 18px;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+.toc h2{font-size:.95rem;margin:0 0 14px;letter-spacing:.02em}
+.toc ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.toc li a{display:block;padding:9px 12px;border-radius:12px;color:var(--text);font-size:14px}
+.toc li a:hover{background:var(--surface-alt)}
+.toc .toc-sub a{padding-left:22px;color:var(--muted);font-size:13px}
+.content-wrap{background:rgba(255,255,255,.82);border:1px solid rgba(220,227,239,.9);border-radius:28px;box-shadow:var(--shadow);overflow:hidden;backdrop-filter:blur(10px)}
+.content-head{padding:24px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(241,245,251,.92));display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.content-head p{margin:0;color:var(--muted)}
+.content{padding:28px}
+.content h2{margin:2.2em 0 .8em;font-size:clamp(1.45rem,1.7vw,1.9rem);line-height:1.25;padding-bottom:10px;border-bottom:1px solid var(--line);scroll-margin-top:32px}
+.content h2:first-child{margin-top:0}
+.content h3{margin:1.5em 0 .6em;font-size:1.15rem;line-height:1.35;padding-left:14px;border-left:4px solid var(--accent);scroll-margin-top:32px}
+.content h4{margin:1.2em 0 .5em;font-size:1rem}
+.content p{margin:0 0 1em}
+.content ul,.content ol{margin:0 0 1.2em;padding-left:1.35em}
+.content li{margin:.35em 0}
+.content hr{border:0;border-top:1px dashed var(--line);margin:2em 0}
+.content blockquote{margin:1.3em 0;padding:16px 18px;background:#edf3ff;border-left:4px solid var(--accent);border-radius:14px;color:#243653}
+.content table{width:100%;border-collapse:collapse;margin:1.2em 0 1.6em;border-radius:14px;overflow:hidden;border:1px solid var(--line);display:block;overflow-x:auto;white-space:nowrap;background:#fff}
+.content thead{background:#f2f6fd}
+.content th,.content td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:14px}
+.content tbody tr:nth-child(even){background:#fbfcff}
+.content strong{color:#101826}
+.content code{background:#eef3fa;padding:.18em .42em;border-radius:8px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.93em}
+.footnote{margin-top:28px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.site-footer{width:min(calc(100% - 40px),var(--max));margin:0 auto 36px;color:var(--muted);font-size:13px;text-align:center}
+@media (max-width:1080px){.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.layout{grid-template-columns:1fr}.toc{position:static}}
+@media (max-width:720px){.shell{width:min(calc(100% - 24px),var(--max))}.hero{padding:24px 20px 22px;border-radius:24px}.summary-grid{grid-template-columns:1fr}.content-head,.content{padding:20px}.toc{padding:18px 16px;border-radius:18px}}
+@media print{body{background:#fff}.hero{box-shadow:none;background:#18212f}.toc{display:none}.layout{grid-template-columns:1fr}.content-wrap{border:0;box-shadow:none;background:#fff}.content-head{background:#fff}.shell{width:100%;margin:0}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="hero" id="top">
+  <div class="hero-top">
+    <div>
+      <div class="eyebrow">共有用Web版 / 提案資料</div>
+      <h1>新大陸向け Claude Codeスクール企画提案（ドラフト）</h1>
+      <p class="lead">非エンジニアが業務改善人材から案件対応人材へ成長し、最終的に新大陸の案件・業務委託・採用へ接続できるキャリア直結型スクールの企画書です。</p>
+    </div>
+    <div class="hero-actions">
+      <a class="button primary" href="#section-1">本文へ移動</a>
+      <button class="button" onclick="window.print()">印刷 / PDF保存</button>
+    </div>
+  </div>
+  <div class="meta-badges">
+    <span class="badge"><span class="badge-label">作成日</span>2026-03-16</span>
+<span class="badge"><span class="badge-label">作成目的</span>個人向けスクールのコース設計叩き台</span>
+<span class="badge"><span class="badge-label">対象</span>株式会社新大陸 提案用</span>
+    <span class="badge"><span class="badge-label">形式</span>共有用Web版</span>
+    <span class="badge"><span class="badge-label">構成</span>4プラン</span>
+  </div>
+  <section class="summary-grid"><article class="summary-card"><div class="summary-top"><span class="summary-tier">初級</span><span class="summary-role">入口商品</span></div><p>小さな業務改善ツールを1本作る</p></article>
+<article class="summary-card"><div class="summary-top"><span class="summary-tier">中級</span><span class="summary-role">主力商品</span></div><p>業務アプリを1本作り運用まで説明</p></article>
+<article class="summary-card"><div class="summary-top"><span class="summary-tier">実践</span><span class="summary-role">利益商品</span></div><p>提案・実装・納品まで一通り回す</p></article>
+<article class="summary-card"><div class="summary-top"><span class="summary-tier">Pro</span><span class="summary-role">選抜商品</span></div><p>案件・採用直結の実務人材へ</p></article></section>
+</header>
+<div class="layout">
+  <aside class="toc"><h2>目次</h2><ul><li class="toc-main"><a href="#section-1">1. 企画コンセプト</a></li>
+<li class="toc-main"><a href="#section-2">2. 企画の全体設計</a></li>
+<li class="toc-sub"><a href="#section-3">2-1. 4プランの役割整理</a></li>
+<li class="toc-sub"><a href="#section-4">2-2. 共通の提供形式</a></li>
+<li class="toc-sub"><a href="#section-5">2-3. この設計にする理由</a></li>
+<li class="toc-main"><a href="#section-6">3. 仮の価格設計</a></li>
+<li class="toc-sub"><a href="#section-7">3-1. 販売価格（仮）</a></li>
+<li class="toc-sub"><a href="#section-8">3-2. 価格設定の考え方</a></li>
+<li class="toc-sub"><a href="#section-9">3-3. 販売上の補足</a></li>
+<li class="toc-main"><a href="#section-10">4. 初級プラン｜AI業務改善スターター</a></li>
+<li class="toc-sub"><a href="#section-11">4-1. プラン概要</a></li>
+<li class="toc-sub"><a href="#section-12">4-2. ペルソナ</a></li>
+<li class="toc-sub"><a href="#section-13">4-3. ゴール</a></li>
+<li class="toc-sub"><a href="#section-14">4-4. ベネフィット</a></li>
+<li class="toc-sub"><a href="#section-15">4-5. コース構成</a></li>
+<li class="toc-sub"><a href="#section-20">4-6. 成果物</a></li>
+<li class="toc-sub"><a href="#section-21">4-7. 修了後の出口</a></li>
+<li class="toc-sub"><a href="#section-22">4-8. この価格・内容にする理由</a></li>
+<li class="toc-main"><a href="#section-23">5. 中級プラン｜業務アプリ実装コース</a></li>
+<li class="toc-sub"><a href="#section-24">5-1. プラン概要</a></li>
+<li class="toc-sub"><a href="#section-25">5-2. ペルソナ</a></li>
+<li class="toc-sub"><a href="#section-26">5-3. ゴール</a></li>
+<li class="toc-sub"><a href="#section-27">5-4. ベネフィット</a></li>
+<li class="toc-sub"><a href="#section-28">5-5. コース構成</a></li>
+<li class="toc-sub"><a href="#section-37">5-6. 推奨題材</a></li>
+<li class="toc-sub"><a href="#section-38">5-7. 成果物</a></li>
+<li class="toc-sub"><a href="#section-39">5-8. 修了後の出口</a></li>
+<li class="toc-sub"><a href="#section-40">5-9. この価格・内容にする理由</a></li>
+<li class="toc-main"><a href="#section-41">6. 実践プラン｜FDE案件化ブートキャンプ</a></li>
+<li class="toc-sub"><a href="#section-42">6-1. プラン概要</a></li>
+<li class="toc-sub"><a href="#section-43">6-2. ペルソナ</a></li>
+<li class="toc-sub"><a href="#section-44">6-3. ゴール</a></li>
+<li class="toc-sub"><a href="#section-45">6-4. ベネフィット</a></li>
+<li class="toc-sub"><a href="#section-46">6-5. コース構成</a></li>
+<li class="toc-sub"><a href="#section-55">6-6. 成果物</a></li>
+<li class="toc-sub"><a href="#section-56">6-7. 修了後の出口</a></li>
+<li class="toc-sub"><a href="#section-57">6-8. この価格・内容にする理由</a></li>
+<li class="toc-main"><a href="#section-58">7. Proプラン｜配属・採用直結プログラム</a></li>
+<li class="toc-sub"><a href="#section-59">7-1. プラン概要</a></li>
+<li class="toc-sub"><a href="#section-60">7-2. ペルソナ</a></li>
+<li class="toc-sub"><a href="#section-61">7-3. ゴール</a></li>
+<li class="toc-sub"><a href="#section-62">7-4. ベネフィット</a></li>
+<li class="toc-sub"><a href="#section-63">7-5. コース構成</a></li>
+<li class="toc-sub"><a href="#section-70">7-6. 成果物</a></li>
+<li class="toc-sub"><a href="#section-71">7-7. 修了後の出口</a></li>
+<li class="toc-sub"><a href="#section-72">7-8. この価格・内容にする理由</a></li>
+<li class="toc-main"><a href="#section-73">8. 新大陸ならではの差別化ポイント</a></li>
+<li class="toc-sub"><a href="#section-74">8-1. 学んだ先に「案件」がある</a></li>
+<li class="toc-sub"><a href="#section-75">8-2. 新大陸自身が需要側を持っている</a></li>
+<li class="toc-sub"><a href="#section-76">8-3. 建設・中小企業・営業/バックオフィスの題材が作れる</a></li>
+<li class="toc-sub"><a href="#section-77">8-4. FDEメソッドを教えられる</a></li>
+<li class="toc-main"><a href="#section-78">9. 販売設計のおすすめ方針</a></li>
+<li class="toc-sub"><a href="#section-79">9-1. 初期フェーズ</a></li>
+<li class="toc-sub"><a href="#section-80">9-2. マーケティング訴求</a></li>
+<li class="toc-sub"><a href="#section-81">9-3. 注意点</a></li>
+<li class="toc-main"><a href="#section-82">10. 参考にした市場価格レンジ（価格仮説の外部参考）</a></li>
+<li class="toc-main"><a href="#section-83">11. 最終提案</a></li>
+<li class="toc-main"><a href="#section-84">12. 外部参考URL</a></li></ul></aside>
+  <main class="content-wrap">
+    <div class="content-head">
+      <div><strong>共有向けにブラウザ閲覧しやすい形へ整形済み</strong><p>1ファイル完結のHTMLです。配布・確認・印刷/PDF化にも使えます。</p></div>
+      <a class="button" href="#top">ページ上部へ戻る</a>
+    </div>
+    <article class="content"><p>作成日: 2026-03-16<br />
+作成目的: 個人向けスクールのコース設計叩き台<br />
+対象: 株式会社新大陸 提案用</p>
+<blockquote>
+<p>※本資料の価格・期間・サポート範囲は仮設定です。<br />
+※本資料では「Cloud Code」ではなく、Anthropicの <strong>Claude Code（クロードコード）</strong> を前提にしています。<br />
+※法人向けAI研修・助成金活用プランは別商品として設計し、本資料は主に個人向けB2Cスクールの設計を対象としています。</p>
+</blockquote>
+<hr />
+<h2 id="section-1">1. 企画コンセプト</h2>
+
+<p>このスクールは、単なる「Claude Codeの使い方講座」ではなく、<strong>非エンジニアが業務改善人材から案件対応人材へ成長し、最終的に新大陸の案件・業務委託・採用へ接続できるキャリア直結型スクール</strong>として設計する。</p>
+<p>新大陸の強みは、学習の先に</p>
+<ul>
+<li>新大陸の既存顧客へのAI活用支援</li>
+<li>FDE（伴走型AI実装支援）</li>
+<li>SES・業務委託案件</li>
+<li>新大陸本体または提携先への採用</li>
+</ul>
+<p>という出口を設計できる点にある。<br />
+そのため、商品としての見せ方も「AIを学ぶ」ではなく、<strong>AIで業務を変え、仕事につなげる</strong>ことを主語にする。</p>
+<hr />
+<h2 id="section-2">2. 企画の全体設計</h2>
+
+<h3 id="section-3">2-1. 4プランの役割整理</h3>
+
+<table>
+<thead>
+<tr>
+  <th>プラン</th>
+  <th>役割</th>
+  <th>主な対象</th>
+  <th>到達イメージ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>初級プラン</td>
+  <td>入口商品</td>
+  <td>未経験・非エンジニア</td>
+  <td>AIで小さな業務改善ツールを1本作れる</td>
+</tr>
+<tr>
+  <td>中級プラン</td>
+  <td>主力商品</td>
+  <td>副業予備軍・社内DX担当候補</td>
+  <td>業務アプリを1本作り、運用まで説明できる</td>
+</tr>
+<tr>
+  <td>実践プラン</td>
+  <td>利益商品</td>
+  <td>案件獲得・転職を狙う層</td>
+  <td>提案・実装・納品まで一通り回せる</td>
+</tr>
+<tr>
+  <td>Proプラン</td>
+  <td>選抜商品</td>
+  <td>上位受講生・採用候補</td>
+  <td>新大陸案件に入れるFDE/Claude Code実務人材になる</td>
+</tr>
+</tbody>
+</table>
+<h3 id="section-4">2-2. 共通の提供形式</h3>
+
+<p>全プラン共通で、以下の形式を前提にする。</p>
+<ul>
+<li>動画学習（eラーニング）</li>
+<li>コースごとの課題提出</li>
+<li>グループレビューまたはワークショップ</li>
+<li>伴走コーチによる質問対応</li>
+<li>テンプレート配布（CLAUDE.md、要件定義、提案書、README等）</li>
+<li>月次アップデート補講（Claude Codeの最新機能反映）</li>
+</ul>
+<h3 id="section-5">2-3. この設計にする理由</h3>
+
+<ul>
+<li>非エンジニア層は、毎週固定時刻で集まる形式より、<strong>自分のペースで進められる動画学習 + 添削 + 伴走</strong>の方が継続しやすい</li>
+<li>Claude Codeは変化が速く、教材を一度作って終わりではなく、<strong>月次で最新化する仕組み</strong>が必要</li>
+<li>新大陸の強みは「教えること」単体ではなく、<strong>案件や採用に接続できること</strong>なので、全コースで成果物と選抜導線を持たせる必要がある</li>
+</ul>
+<hr />
+<h2 id="section-6">3. 仮の価格設計</h2>
+
+<h3 id="section-7">3-1. 販売価格（仮）</h3>
+
+<table>
+<thead>
+<tr>
+  <th>プラン</th>
+  <th style="text-align:right">想定期間</th>
+  <th style="text-align:right">通常価格（税込・仮）</th>
+  <th style="text-align:right">初期モニター価格（税込・仮）</th>
+  <th>位置づけ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>初級プラン</td>
+  <td style="text-align:right">1ヶ月</td>
+  <td style="text-align:right">88,000円</td>
+  <td style="text-align:right">69,800円</td>
+  <td>最初の成功体験を作る入口商品</td>
+</tr>
+<tr>
+  <td>中級プラン</td>
+  <td style="text-align:right">2ヶ月</td>
+  <td style="text-align:right">248,000円</td>
+  <td style="text-align:right">198,000円</td>
+  <td>もっとも売上の中心になる主力商品</td>
+</tr>
+<tr>
+  <td>実践プラン</td>
+  <td style="text-align:right">3ヶ月</td>
+  <td style="text-align:right">498,000円</td>
+  <td style="text-align:right">398,000円</td>
+  <td>案件化・転職導線を担う利益商品</td>
+</tr>
+<tr>
+  <td>Proプラン</td>
+  <td style="text-align:right">3ヶ月</td>
+  <td style="text-align:right">798,000円</td>
+  <td style="text-align:right">598,000円</td>
+  <td>選抜制・配属/採用直結商品</td>
+</tr>
+</tbody>
+</table>
+<h3 id="section-8">3-2. 価格設定の考え方</h3>
+
+<p>今回の仮価格は、以下の市場レンジを踏まえて設定している。</p>
+<ul>
+<li>低価格帯: Udemy型の単発講座</li>
+<li>中価格帯: DMM 生成AI CAMPやSHIFT AIのようなコミュニティ・学び放題型</li>
+<li>高価格帯: TEKIONのような少人数伴走・実装型ブートキャンプ</li>
+</ul>
+<p>新大陸案は、単なる動画配信ではなく、</p>
+<ul>
+<li>課題添削</li>
+<li>実務テンプレ配布</li>
+<li>伴走コーチ</li>
+<li>実案件接続の可能性</li>
+<li>採用・業務委託への導線</li>
+</ul>
+<p>を持つため、<strong>コミュニティ型よりは高く、法人向け少人数ブートキャンプよりは入りやすい価格帯</strong>に置くのが妥当と判断した。</p>
+<h3 id="section-9">3-3. 販売上の補足</h3>
+
+<ul>
+<li>初級は、入口として価格ハードルを下げる</li>
+<li>中級は、最も受講者数を取りにいく中心商品にする</li>
+<li>実践は、成果物と案件化価値が高いため単価を上げる</li>
+<li>Proは、少人数・選抜制・レビュー負荷が高いため高単価に設定する</li>
+<li>将来的には「継続割」「一括申込割」「採用トラック特典」を追加してもよい</li>
+</ul>
+<hr />
+<h2 id="section-10">4. 初級プラン｜AI業務改善スターター</h2>
+
+<h3 id="section-11">4-1. プラン概要</h3>
+
+<ul>
+<li>想定期間: 1ヶ月</li>
+<li>想定学習時間: 20〜30時間</li>
+<li>通常価格: 88,000円（税込・仮）</li>
+<li>初期モニター価格: 69,800円（税込・仮）</li>
+</ul>
+<h3 id="section-12">4-2. ペルソナ</h3>
+
+<ul>
+<li>非エンジニアの会社員</li>
+<li>営業、事務、バックオフィス、建設事務、現場管理補助など</li>
+<li>AIチャットは使ったことがあるが、自分でツールやアプリを作ったことはない</li>
+<li>将来の副業・転職・昇給に少し興味がある</li>
+</ul>
+<h3 id="section-13">4-3. ゴール</h3>
+
+<p>Claude CodeとVS Codeの基本環境を整え、テンプレートを活用しながら、<strong>業務改善ミニツールを1本完成・公開し、3分で説明できる状態</strong>になる。</p>
+<h3 id="section-14">4-4. ベネフィット</h3>
+
+<ul>
+<li>AIを「質問するだけ」から「成果物を作る」側に移れる</li>
+<li>非エンジニアでも、自分に実装ができるという成功体験が得られる</li>
+<li>次の中級プランに進むための土台ができる</li>
+</ul>
+<h3 id="section-15">4-5. コース構成</h3>
+
+<h4 id="section-16">コース1｜Claude Codeの全体像と環境構築</h4>
+
+<ul>
+<li>Claude Codeの役割とできること</li>
+<li>VS Codeの基本操作</li>
+<li>ターミナル、ファイル、フォルダの理解</li>
+<li>GitHubアカウント準備と基本的な使い方</li>
+<li>最初のプロジェクト立ち上げ</li>
+</ul>
+<h4 id="section-17">コース2｜非エンジニア向け実装の基礎</h4>
+
+<ul>
+<li>HTML / CSS / JavaScriptの最低限の理解</li>
+<li>Claude Codeへの依頼の出し方</li>
+<li>エラーの読み方と直し方</li>
+<li>コードを壊したときの戻し方</li>
+<li>小さく試す・確認する・修正する流れ</li>
+</ul>
+<h4 id="section-18">コース3｜業務改善ミニツール制作</h4>
+
+<p>以下のような題材から1つ選んで制作する。</p>
+<ul>
+<li>議事録整理ツール</li>
+<li>見積書ドラフト補助ツール</li>
+<li>CSV/スプレッドシート整理ツール</li>
+<li>資料・写真整理ツール</li>
+</ul>
+<h4 id="section-19">コース4｜公開・説明・発信</h4>
+
+<ul>
+<li>READMEの作り方</li>
+<li>デモの見せ方</li>
+<li>導入前後の変化の言語化</li>
+<li>3分デモ動画の作成</li>
+<li>成果物をポートフォリオとして見せる方法</li>
+</ul>
+<h3 id="section-20">4-6. 成果物</h3>
+
+<ul>
+<li>業務改善ミニツール 1本</li>
+<li>README 1本</li>
+<li>3分デモ動画 1本</li>
+<li>業務改善レポート 1本</li>
+</ul>
+<h3 id="section-21">4-7. 修了後の出口</h3>
+
+<ul>
+<li>中級プランへの継続受講</li>
+<li>社内の小さな業務改善提案</li>
+<li>AI活用実績としての初期ポートフォリオ化</li>
+</ul>
+<h3 id="section-22">4-8. この価格・内容にする理由</h3>
+
+<p>初級の目的は、難しい理論を教えることではなく、<strong>最短で成功体験を作ること</strong>にある。<br />
+そのため、価格も高すぎず、しかし「安い動画教材」で終わらない水準に設定する。<br />
+新大陸の将来売上は中級・実践・Proで作るため、初級は利益最大化よりも<strong>入口としての強さ</strong>を重視する。</p>
+<hr />
+<h2 id="section-23">5. 中級プラン｜業務アプリ実装コース</h2>
+
+<h3 id="section-24">5-1. プラン概要</h3>
+
+<ul>
+<li>想定期間: 2ヶ月</li>
+<li>想定学習時間: 45〜60時間</li>
+<li>通常価格: 248,000円（税込・仮）</li>
+<li>初期モニター価格: 198,000円（税込・仮）</li>
+</ul>
+<h3 id="section-25">5-2. ペルソナ</h3>
+
+<ul>
+<li>初級修了者、または同等の基礎力がある人</li>
+<li>副業を始めたい人</li>
+<li>社内DX担当・業務改善担当になりたい人</li>
+<li>小さな案件を受けられるレベルを目指す人</li>
+</ul>
+<h3 id="section-26">5-3. ゴール</h3>
+
+<p><strong>DB・認証・ファイル管理・API連携を含む業務アプリを1本作り、要件と運用まで説明できる状態</strong>になる。</p>
+<h3 id="section-27">5-4. ベネフィット</h3>
+
+<ul>
+<li>「AIを使える人」から「業務をアプリに落とし込める人」へ変わる</li>
+<li>社内評価、副業準備、転職時の強い武器になる</li>
+<li>実践プランへの進学条件を満たしやすくなる</li>
+</ul>
+<h3 id="section-28">5-5. コース構成</h3>
+
+<h4 id="section-29">コース1｜業務課題の見つけ方とアプリ企画</h4>
+
+<ul>
+<li>業務棚卸しの進め方</li>
+<li>課題の言語化</li>
+<li>ユーザーストーリー作成</li>
+<li>アプリ化する範囲の決め方</li>
+</ul>
+<h4 id="section-30">コース2｜画面設計と入力設計</h4>
+
+<ul>
+<li>UIの考え方</li>
+<li>フォーム設計</li>
+<li>入力バリデーション</li>
+<li>一覧、詳細、編集の画面構成</li>
+</ul>
+<h4 id="section-31">コース3｜データベースとCRUD実装</h4>
+
+<ul>
+<li>DBの基本概念</li>
+<li>テーブル設計の初歩</li>
+<li>作成、閲覧、更新、削除の実装</li>
+<li>検索・並び替え・絞り込み</li>
+</ul>
+<h4 id="section-32">コース4｜認証・権限・ファイル管理</h4>
+
+<ul>
+<li>ログイン機能</li>
+<li>権限別の画面制御</li>
+<li>添付ファイルの扱い</li>
+<li>ステータス管理とワークフロー設計</li>
+</ul>
+<h4 id="section-33">コース5｜外部連携と自動化</h4>
+
+<ul>
+<li>スプレッドシート連携</li>
+<li>CSV入出力</li>
+<li>API連携の基本</li>
+<li>業務自動化の考え方</li>
+</ul>
+<h4 id="section-34">コース6｜Claude Codeの再現性を高める運用</h4>
+
+<ul>
+<li>CLAUDE.mdの作り方</li>
+<li>再利用できるプロジェクトルール設計</li>
+<li>Skillsの基礎</li>
+<li>作業ログの残し方</li>
+</ul>
+<h4 id="section-35">コース7｜品質改善と運用設計</h4>
+
+<ul>
+<li>テストとデバッグ</li>
+<li>ログの見方</li>
+<li>リファクタリングの基本</li>
+<li>セキュリティの初歩</li>
+<li>利用手順書の作成</li>
+</ul>
+<h4 id="section-36">コース8｜最終制作とデモ</h4>
+
+<ul>
+<li>業務アプリ完成</li>
+<li>デモ資料作成</li>
+<li>改善提案の言語化</li>
+<li>フィードバック反映</li>
+</ul>
+<h3 id="section-37">5-6. 推奨題材</h3>
+
+<ul>
+<li>見積管理アプリ</li>
+<li>問い合わせ管理アプリ</li>
+<li>営業進捗管理アプリ</li>
+<li>社内ナレッジ検索アプリ</li>
+<li>写真/資料台帳アプリ</li>
+</ul>
+<h3 id="section-38">5-7. 成果物</h3>
+
+<ul>
+<li>業務アプリ 1本</li>
+<li>要件定義メモ 1式</li>
+<li>画面設計資料 1式</li>
+<li>利用手順書 1本</li>
+<li>デモ資料 1本</li>
+</ul>
+<h3 id="section-39">5-8. 修了後の出口</h3>
+
+<ul>
+<li>実践プランへの進学</li>
+<li>社内DXの小規模提案</li>
+<li>小規模な副業案件への挑戦</li>
+<li>実務ポートフォリオの中核化</li>
+</ul>
+<h3 id="section-40">5-9. この価格・内容にする理由</h3>
+
+<p>中級は、最も売上の柱になりやすいプランであり、<strong>新大陸の主力商品</strong>として設計する。<br />
+ここで「アプリを作れる人」を増やせると、実践・Proへの送り込みがしやすくなる。<br />
+そのため、価格はコミュニティ型より高いが、成果物1本と運用設計まで含むことで、十分な価値を感じやすい水準に設定する。</p>
+<hr />
+<h2 id="section-41">6. 実践プラン｜FDE案件化ブートキャンプ</h2>
+
+<h3 id="section-42">6-1. プラン概要</h3>
+
+<ul>
+<li>想定期間: 3ヶ月</li>
+<li>想定学習時間: 80〜100時間</li>
+<li>通常価格: 498,000円（税込・仮）</li>
+<li>初期モニター価格: 398,000円（税込・仮）</li>
+</ul>
+<h3 id="section-43">6-2. ペルソナ</h3>
+
+<ul>
+<li>中級修了者</li>
+<li>3〜6ヶ月以内に副業収入を作りたい人</li>
+<li>業務委託や転職に使える実績を作りたい人</li>
+<li>実案件に近い流れを経験したい人</li>
+</ul>
+<h3 id="section-44">6-3. ゴール</h3>
+
+<p><strong>AI化診断 → 提案 → MVP実装 → テスト → 納品 → 運用説明</strong>までを一通り回し、案件対応の型を身につける。</p>
+<h3 id="section-45">6-4. ベネフィット</h3>
+
+<ul>
+<li>チュートリアルを卒業し、実務に近い経験が積める</li>
+<li>提案書・要件定義・運用資料まで揃ったポートフォリオが作れる</li>
+<li>新大陸案件候補・業務委託候補に最も近い層になれる</li>
+</ul>
+<h3 id="section-46">6-5. コース構成</h3>
+
+<h4 id="section-47">コース1｜業務棚卸しと課題選定</h4>
+
+<ul>
+<li>業務一覧の整理</li>
+<li>めんどくささ × 実装難易度による優先順位付け</li>
+<li>AI導入対象の見極め</li>
+<li>MVP候補の絞り込み</li>
+</ul>
+<h4 id="section-48">コース2｜提案書とROI仮説</h4>
+
+<ul>
+<li>提案ストーリーの作り方</li>
+<li>ROIの簡易試算</li>
+<li>提案範囲と効果の見せ方</li>
+<li>顧客への説明ロジック</li>
+</ul>
+<h4 id="section-49">コース3｜要件定義とスコープ設計</h4>
+
+<ul>
+<li>要件定義書の作り方</li>
+<li>画面設計・データ設計</li>
+<li>スコープの切り方</li>
+<li>見積感覚の基礎</li>
+</ul>
+<h4 id="section-50">コース4｜案件サイズの実装 1</h4>
+
+<ul>
+<li>マルチ画面構成</li>
+<li>権限制御</li>
+<li>ワークフロー設計</li>
+<li>主要機能の実装</li>
+</ul>
+<h4 id="section-51">コース5｜案件サイズの実装 2</h4>
+
+<ul>
+<li>外部ツール連携</li>
+<li>MCP利用の基礎</li>
+<li>自動化フロー設計</li>
+<li>実運用を意識した改善</li>
+</ul>
+<h4 id="section-52">コース6｜レビュー・テスト・修正対応</h4>
+
+<ul>
+<li>テストケース設計</li>
+<li>レビューの受け方と反映方法</li>
+<li>不具合修正の進め方</li>
+<li>受け入れ基準の確認</li>
+</ul>
+<h4 id="section-53">コース7｜納品資料と運用設計</h4>
+
+<ul>
+<li>操作マニュアル作成</li>
+<li>利用者向け説明資料</li>
+<li>納品後の改善提案</li>
+<li>保守運用の考え方</li>
+</ul>
+<h4 id="section-54">コース8｜案件化・ポートフォリオ化</h4>
+
+<ul>
+<li>デモ会</li>
+<li>実績記事作成</li>
+<li>X / note / ポートフォリオ向け発信設計</li>
+<li>案件面談ロールプレイ</li>
+</ul>
+<h3 id="section-55">6-6. 成果物</h3>
+
+<ul>
+<li>AI化診断シート 1式</li>
+<li>提案書 1本</li>
+<li>要件定義書 1本</li>
+<li>業務アプリ 1本</li>
+<li>操作マニュアル 1本</li>
+<li>実績記事 1本</li>
+</ul>
+<h3 id="section-56">6-7. 修了後の出口</h3>
+
+<ul>
+<li>新大陸の小規模案件候補</li>
+<li>業務委託候補</li>
+<li>研修アシスタント候補</li>
+<li>転職活動用の強いポートフォリオ</li>
+</ul>
+<h3 id="section-57">6-8. この価格・内容にする理由</h3>
+
+<p>実践プランは、単に「作れる」ではなく、<strong>案件として成立させる力</strong>を身につけるフェーズである。<br />
+そのため、提案・要件定義・納品まで含めて価値が大きく、初級・中級より高単価にしてよい。<br />
+また、新大陸の事業構造においては、この層が増えるほどFDE・SES・受託開発との接続がしやすくなるため、<strong>事業上の重要度が高いプラン</strong>となる。</p>
+<hr />
+<h2 id="section-58">7. Proプラン｜配属・採用直結プログラム</h2>
+
+<h3 id="section-59">7-1. プラン概要</h3>
+
+<ul>
+<li>想定期間: 3ヶ月</li>
+<li>想定学習時間: 90〜120時間</li>
+<li>通常価格: 798,000円（税込・仮）</li>
+<li>初期モニター価格: 598,000円（税込・仮）</li>
+<li>参加条件: 選抜制 / 面談制</li>
+</ul>
+<h3 id="section-60">7-2. ペルソナ</h3>
+
+<ul>
+<li>実践プラン上位修了者</li>
+<li>新大陸案件に入りたい人</li>
+<li>業務委託や正社員候補として見られたい人</li>
+<li>顧客対応、提案、運用まで見られる人材を目指す人</li>
+</ul>
+<h3 id="section-61">7-3. ゴール</h3>
+
+<p><strong>顧客業務を診断し、PoCを設計し、チーム設定・セキュリティ・運用まで見られるFDE/Claude Code実務人材</strong>になる。</p>
+<h3 id="section-62">7-4. ベネフィット</h3>
+
+<ul>
+<li>学習者ではなく、実務人材として見られる状態に近づく</li>
+<li>新大陸案件、業務委託、採用への接続可能性が高まる</li>
+<li>高単価案件や上位キャリアへの移行がしやすくなる</li>
+</ul>
+<h3 id="section-63">7-5. コース構成</h3>
+
+<h4 id="section-64">コース1｜顧客ヒアリングと業務マップ作成</h4>
+
+<ul>
+<li>顧客課題の聞き出し方</li>
+<li>業務フローの整理</li>
+<li>ボトルネックの特定</li>
+<li>関係者整理</li>
+</ul>
+<h4 id="section-65">コース2｜PoC企画とROI設計</h4>
+
+<ul>
+<li>PoCテーマの決め方</li>
+<li>ROIの見せ方</li>
+<li>導入優先順位</li>
+<li>社内提案の組み立て方</li>
+</ul>
+<h4 id="section-66">コース3｜チームで使うClaude Code設計</h4>
+
+<ul>
+<li>プロジェクト構成の標準化</li>
+<li>CLAUDE.mdのチーム運用</li>
+<li>Skillsのライブラリ化</li>
+<li>コンテキスト運用の標準ルール</li>
+</ul>
+<h4 id="section-67">コース4｜高度機能の実務活用</h4>
+
+<ul>
+<li>Subagentsの役割分担</li>
+<li>Hooksの活用</li>
+<li>MCP運用の考え方</li>
+<li>Pluginsや拡張機能の実務活用</li>
+<li>Background commandsの扱い</li>
+</ul>
+<h4 id="section-68">コース5｜セキュリティ・ガバナンス・運用改善</h4>
+
+<ul>
+<li>権限管理</li>
+<li>秘密情報の扱い</li>
+<li>利用ルール整備</li>
+<li>監査観点の初歩</li>
+<li>継続改善の仕組みづくり</li>
+</ul>
+<h4 id="section-69">コース6｜最終審査と配属準備</h4>
+
+<ul>
+<li>実案件相当PoCの提出</li>
+<li>顧客説明ロールプレイ</li>
+<li>後輩レビュー/教え返し</li>
+<li>最終面談</li>
+<li>配属/採用/業務委託候補判定</li>
+</ul>
+<h3 id="section-70">7-6. 成果物</h3>
+
+<ul>
+<li>FDE診断レポート 1本</li>
+<li>ROIシート 1本</li>
+<li>PoC実装 1本</li>
+<li>社内説明用資料 1本</li>
+<li>面談用ポートフォリオ 1式</li>
+</ul>
+<h3 id="section-71">7-7. 修了後の出口</h3>
+
+<ul>
+<li>新大陸の正社員候補</li>
+<li>新大陸の業務委託・パートナー候補</li>
+<li>提携先企業への転職推薦候補</li>
+<li>上位案件へのアサイン候補</li>
+</ul>
+<h3 id="section-72">7-8. この価格・内容にする理由</h3>
+
+<p>Proは上級講座ではなく、<strong>配属前訓練・選抜プログラム</strong>である。<br />
+レビュー密度、少人数運営、案件・採用への接続設計を考えると、通常のスクールより高単価でも成立しやすい。<br />
+また、新大陸にとっては採用コストや育成コストを先に回収できる意味もあるため、事業性の観点でも高単価設計が妥当である。</p>
+<hr />
+<h2 id="section-73">8. 新大陸ならではの差別化ポイント</h2>
+
+<h3 id="section-74">8-1. 学んだ先に「案件」がある</h3>
+
+<p>多くのAIスクールは、学習で終わる。<br />
+新大陸案は、<strong>学習 → 実践 → 案件候補化 → 業務委託/採用</strong>という導線が作れる点が最大の差別化になる。</p>
+<h3 id="section-75">8-2. 新大陸自身が需要側を持っている</h3>
+
+<p>新大陸は、既存顧客へのAI活用支援、FDE、受託開発、人材紹介へつながる可能性を持っている。<br />
+そのため、ただ学ぶだけでなく、<strong>実務に使われる人材へ育てる設計</strong>ができる。</p>
+<h3 id="section-76">8-3. 建設・中小企業・営業/バックオフィスの題材が作れる</h3>
+
+<p>一般的なスクールは、汎用テーマに寄りやすい。<br />
+新大陸は、見積書、資料管理、問い合わせ管理、営業進捗、写真/資料台帳など、<strong>既存顧客の課題に直結した教材テーマ</strong>を持てる。</p>
+<h3 id="section-77">8-4. FDEメソッドを教えられる</h3>
+
+<p>新大陸案の本質は、ツール学習ではなく、</p>
+<ul>
+<li>業務棚卸し</li>
+<li>課題発見</li>
+<li>AI化診断</li>
+<li>MVP提案</li>
+<li>実装</li>
+<li>納品</li>
+<li>運用改善</li>
+</ul>
+<p>まで含めた<strong>実装型の支援人材を育てること</strong>にある。</p>
+<hr />
+<h2 id="section-78">9. 販売設計のおすすめ方針</h2>
+
+<h3 id="section-79">9-1. 初期フェーズ</h3>
+
+<p>最初は、以下の順番で立ち上げるのが良い。</p>
+<ol>
+<li>初級・中級を先に販売開始する</li>
+<li>事例が出た受講生をもとに実践プランへ送客する</li>
+<li>実践プラン上位者だけをProに引き上げる</li>
+<li>Pro修了者を案件・採用へ接続する</li>
+</ol>
+<h3 id="section-80">9-2. マーケティング訴求</h3>
+
+<p>訴求は「Claude Codeを学ぶ」より、以下の表現がよい。</p>
+<ul>
+<li>非エンジニアでもAIで業務改善ツールが作れる</li>
+<li>AIを武器に社内評価・昇給・副業に繋げる</li>
+<li>学んだ先に案件・業務委託・採用のチャンスがある</li>
+<li>仕事で使えるアプリを作れるようになる</li>
+</ul>
+<h3 id="section-81">9-3. 注意点</h3>
+
+<ul>
+<li>「案件保証」「採用保証」は避ける</li>
+<li>表現は <strong>評価基準達成者を案件候補・採用候補に接続</strong> とする</li>
+<li>品質担保のため、Proは必ず選抜制にする</li>
+<li>教材は固定化せず、月次更新前提で運営する</li>
+</ul>
+<hr />
+<h2 id="section-82">10. 参考にした市場価格レンジ（価格仮説の外部参考）</h2>
+
+<ul>
+<li>DMM 生成AI CAMP 学び放題: 月額14,800円（税込16,280円）</li>
+<li>SHIFT AI: 月払い21,780円 / 年払い217,800円（税込）</li>
+<li>TEKION Vibe Coder Bootcamp: Premium Core 40万円/名</li>
+</ul>
+<p>これらを踏まえ、新大陸のコースは</p>
+<ul>
+<li>単なる学び放題型より高い</li>
+<li>少人数伴走ブートキャンプよりは入りやすい</li>
+<li>ただし案件接続・採用接続の価値を乗せられる</li>
+</ul>
+<p>という価格帯に置くのが妥当と判断した。</p>
+<hr />
+<h2 id="section-83">11. 最終提案</h2>
+
+<p>新大陸が出すべき商品は、単なる「Claude Code講座」ではなく、<strong>非エンジニアがAIで業務アプリを作り、案件・業務委託・正社員採用まで接続できるキャリア直結型スクール</strong>である。</p>
+<p>そのため、4プランは以下の役割で整理するのが最も筋が良い。</p>
+<ul>
+<li>初級: AIで小さな成果物を作れる人を増やす</li>
+<li>中級: 業務アプリを実装できる人を作る</li>
+<li>実践: 提案・納品までできる人を作る</li>
+<li>Pro: 新大陸の案件に入れる人を選抜する</li>
+</ul>
+<p>この設計であれば、他社の汎用AIスクールと真正面から価格競争せず、<strong>新大陸の顧客基盤・案件供給力・採用力を参入障壁として使える</strong>。</p>
+<hr />
+<h2 id="section-84">12. 外部参考URL</h2>
+
+<ul>
+<li>DMM 生成AI CAMP: <a href="https://genai.dmm.com/">https://genai.dmm.com/</a></li>
+<li>SHIFT AI 料金情報: <a href="https://shift-ai.co.jp/blog/18987/">https://shift-ai.co.jp/blog/18987/</a></li>
+<li>Vibe Coder Bootcamp: <a href="https://www.vibe-coder-bootcamp.com/">https://www.vibe-coder-bootcamp.com/</a></li>
+<li>Classmethod Claude Codeセミナー: <a href="https://classmethod.jp/seminar/260324-claude-code-webinar/">https://classmethod.jp/seminar/260324-claude-code-webinar/</a></li>
+<li>Udemy Claude Codeカテゴリ: <a href="https://www.udemy.com/ja/topic/claude-code/">https://www.udemy.com/ja/topic/claude-code/</a></li>
+</ul>
+<div class="footnote">本ページは元のMarkdown企画書をもとに、共有向けのWebレイアウトへ再構成したものです。</div></article>
+  </main>
+</div>
+</div>
+<footer class="site-footer">新大陸向け Claude Codeスクール企画提案（ドラフト） / 共有用HTML</footer>
+</body>
+</html>
